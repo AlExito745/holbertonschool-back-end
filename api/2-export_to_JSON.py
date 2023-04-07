@@ -13,8 +13,9 @@ if __name__ == "__main__":
     url = url.format(uid)
     todo = requests.get(url, verify=False).json()
     name = usr.get("username")
-    result = [{"task": t.get("title"), "username": name}]
-    result += [{"completed": t.get("completed")} for t in todo]
+    result = [{"task": t.get("title"),
+               "username": name,
+               "completed": t.get("completed")} for t in todo]
     kj = {}
     kj[uid] = result
     with open("{}.json".format(uid), 'w') as filejs:
