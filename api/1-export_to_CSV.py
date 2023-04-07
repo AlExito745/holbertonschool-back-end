@@ -16,5 +16,5 @@ if __name__ == "__main__":
         tskwriter = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
         for t in todo:
             result = [int(uid), usr.get("username")]
-            result += [t.get("completed", t.get("title"))]
+            result += [t.get("completed"), t.get("title")]
             tskwriter.writerow(result)
